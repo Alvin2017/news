@@ -1,0 +1,171 @@
+/*包含bootstrap提供的样式*/
+@import "bootstrap.css";
+body{
+    /*margin-top:50px;*/
+    color:#eee;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+/*分隔空间*/
+.divid{
+    height:60px;
+}
+
+
+/*正方形的小块*/
+.ssquare{
+    width:20px;
+    height:20px;
+    margin:20px auto;
+    background:#E65100;
+}
+
+/*回到顶部设置部分*/
+.bktop>a[href='#firstPage']{
+    display:none;
+    width:70px;
+    height:70px;
+    text-align:center;
+    background:#E65100;
+    position:fixed;
+    bottom:70px;
+    right:20px;
+   z-index: 100000;
+}
+.bktop>a[href='#firstPage']>span{
+    color:white;
+    font-size:20px;
+    line-height: 70px;
+}
+
+#secondPage,#thirdPage,#forthPage,#fivePage,#sixPage{
+    padding:60px;
+    color:#eee;
+}
+#secondPage h1 a,#thirdPage h1 a,#forthPage h1 a,#fivePage h1 a,#sixPage h1 a{
+    color:#E65100;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/*导航条默认被选中的元素样式*/
+#menu .current{
+    color: #e65100;
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 20px;
+}
+
+/*第一页设置部分*/
+
+#firstPage{
+    position:relative;
+    /*background-color:#161415;*/
+}
+.my-caption{
+    position:absolute;
+    top:30%;
+    left:10%;
+    line-height: 30px;
+}
+
+/*第二页页面设置*/
+#secondPage{
+    background:#1F1F1F;
+
+ }
+
+#secondPage li{
+    line-height: 50px;
+
+}
+#secondPage li a:hover{
+    color:#E65100;
+}
+#secondPage span{
+    float:right;
+}
+
+/*第三页设置*/
+#thirdPage{
+    background:#2F2F2F;
+}
+#thirdPage h4 a:hover{
+    color:#E65100;
+}
+
+/*第四页设置部分*/
+#forthPage {
+    background:#1F1F1F;
+}
+#forthPage h4 a:hover{
+    color:#E65100;
+}
+
+/*第五页设置部分*/
+#fivePage {
+    background:#2F2F2F;
+    }
+
+/*第六页设置部分*/
+#sixPage{
+    padding-top:20;
+    background:#1F1F1F;
+}
+#sixPage input,#sixPage textarea{
+    background-color:#1F1F1F;
+}
+/*#sixPage input[type='submit']{*/
+    /*display:block;*/
+    /*width:100%;*/
+    /*background:#E55000;*/
+    /*padding:15px 30px;*/
+    /*font-size:20px;*/
+    /*font-weight:700;*/
+    /*color:#fff;*/
+    /*text-align:center;*/
+    /*outline:0;*/
+    /*border:0;*/
+    /*border-radius:5px;*/
+/*}*/
+#sixPage input[type='submit']{
+    background:#E55000;
+    font-size:20px;
+}
+#sixPage input[type='submit']:hover{
+    background:#A84009;
+}
+
+/*页脚设置部分*/
+#foot{
+   padding-top:40px;
+    background:#2F2F2F;
+}
+#foot h1{
+    color:#E65100;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+#foot a{
+    font-size:16px;
+}
+#foot a:hover{
+    color:#E65100;
+}
+
+/*百度地图设置*/
+.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+
+/*最底部导航设置*/
+#menu1 li{
+    border:2px solid transparent;
+}
+#menu1 li:hover{
+    border:2px solid red;
+    border-radius:5px;
+}

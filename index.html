@@ -1,0 +1,560 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的新闻网</title>
+    <script>
+        // If JavaScript is enabled, add '.js-enabled' to <html> element
+        document.documentElement.classList.add('js-enabled');
+    </script>
+    <style>
+        /* Ensure elements load hidden before ScrollReveal runs */
+        .js-enabled .fooReveal { visibility: hidden; }
+    </style>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/component.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mycss.css">
+</head>
+<body>
+  <!--导航条-->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!--第一部分导航条标志部分-->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand my-logo">logo</a>
+                <a href="#menu" class="navbar-toggle" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+            <!--第二部分导航条折叠部分-->
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="font-weight: bold">
+                    <li><a class="current" href="#firstPage">首页</a></li>
+                    <li><a href="#secondPage">新闻</a></li>
+                    <li><a href="#thirdPage">热点话题</a></li>
+                    <li><a href="#forthPage">国外动态</a></li>
+                    <li><a href="#fivePage">资讯站</a></li>
+                    <li><a href="#sixPage">联系我们</a></li>
+                </ul>
+                <!--右侧的导航菜单-->
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="" style="text-decoration:none;color:#FFFE04;">简体中文</a></li>
+                    <li><a href="">注销</a></li>
+                    <li><a href="javascript:;" class="md-trigger" data-modal="modal-9" id="clk">登录</a></li>
+                </ul>
+                <!--登录弹出框-->
+                <div class="md-modal md-effect-9" id="modal-9">
+                    <div class="md-content">
+                        <h1 type="button" class="md-close pull-right" style="margin-top:0px;cursor:pointer;"><span  aria-hidden="true">&times;</span></h1>
+                        <h3>欢迎光临新闻网</h3>
+                        <h4 style="text-align: center">请登录</h4>
+                        <div>
+                            <form>
+                                <div class="form-group">
+                                    <label class="control-label" for="uname">用户名：</label>
+                                    <input class="form-control" type="text" id="uname" name="uname">
+                                    <!--<span class="help-block">用户名中可以包含字母、下划线</span>-->
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="pwd">密码：</label>
+                                    <input class="form-control" type="text" id="pwd" name="pwd">
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">七天之内不再登录
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <a class="btn btn-success" id="sub" href="#">点击登录</a>
+                                <a class="btn btn-success" href="reg.html">现在去注册</a>
+                                <!--<button class="md-close btn-lg btn-primary navbar-right">关闭</button>-->
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="md-overlay"></div>
+                <!--搜索框-->
+                <!--<form class="navbar-form navbar-right">-->
+                    <!--<div class="form-group has-feedback">-->
+                        <!--<label for="kw" class="sr-only">搜索关键字:</label>-->
+                        <!--<input class="form-control" id="kw">-->
+                        <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                    <!--</div>-->
+                <!--</form>-->
+
+            </div>
+        </div>
+    </div>
+  <!--侧边栏导航-->
+  <div id="wrapper">
+      <div class="overlay"></div>
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+              <li class="sidebar-brand">
+                  <a href="#">网站导航</a>
+              </li>
+              <li>
+                  <a href="#firstPage">首页</a>
+              </li>
+              <li>
+                  <a href="#secondPage"> 新闻</a>
+              </li>
+              <li>
+                  <a href="#thirdPage">热点话题</a>
+              </li>
+              <li>
+                  <a href="#forthPage">国外动态</a>
+              </li>
+              <li class="dropdown">
+                  <a href="#fivePage" class="dropdown-toggle" data-toggle="dropdown"> 资讯站 <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <!--<li class="dropdown-header"><a href="">东南亚快讯</a></li>-->
+                      <li><a href="#">具体列表</a></li>
+                      <li><a href="#">东北亚资讯</a></li>
+                      <li><a href="#">欧美资讯</a></li>
+                      <li><a href="#">北美资讯</a></li>
+                      <li><a href="#">俄罗斯周报</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#sixPage">联系我们</a>
+              </li>
+              <li>
+                  <a href="#foot">友情链接</a>
+              </li>
+              <li>
+                  <a href="#baidumap">网站地图</a>
+              </li>
+          </ul>
+      </nav>
+
+      <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" id="hello">
+              <span class="hamb-top"></span>
+              <span class="hamb-middle"></span>
+              <span class="hamb-bottom"></span>
+          </button>
+      </div>
+  </div>
+
+  <!--回到顶部-->
+  <div class="bktop">
+  <a href="#firstPage"><span class="glyphicon glyphicon-chevron-up"></span></a>
+  </div>
+
+    <!--页面主体部分-->
+  <div class="my-main">
+      <div class="container-fluid" style="padding:0;">
+
+          <!--第一页设置部分-->
+          <div id="firstPage" class="row item">
+              <div class="col-xs-12">
+                 <img src="Images/1.jpg" class="img-responsive" >
+                  <div class="my-caption">
+                      <h1 data-scroll-reveal="enter left and move 40px over 1s" style="color:#e4393c;margin-bottom:30px;">温馨的下午，暖暖的心情！</h1><br/>
+                      <h4 data-scroll-reveal="enter right and move 40px over 2s" style="color:black">网站新闻服务平台,真实反映每时每刻的新闻热点。您可以搜索新闻事件、热点话题、人物动态、产品资讯等,快速了解它们的最新进展。</h4><br/>
+                      <a data-scroll-reveal="wait 1s" class="btn btn-info btn-xs" style="font-size: 16px;padding:5px 8px;" href="#">立即开始进入网站，打开独特的视角。</a>
+                  </div>
+              </div>
+          </div>
+
+          <!--第二页页面设置-->
+          <div id="secondPage" class="item">
+              <div class="row">
+                  <div data-scroll-reveal="enter right and move 100px over 1s" class="col-xs-6 col-xs-offset-3" style="text-align:center;">
+                      <h1><a href="">新闻发布</a></h1>
+                      <div class="ssquare"></div>
+                      <h4  style="line-height:30px;">新闻发布会一般针对对企业意义重大，媒体感兴趣的事件举办。每个新闻发布会都会有一个名字，这个名字会打在关于新闻发布会的一切表现形式上，包括请柬、会议资料、会场布置、纪念品等。</h4>
+                  </div>
+              </div>
+              <!--分隔条-->
+              <div class="divid"></div>
+              <div class="row">
+                  <div class="col-xs-12 col-md-5 col-md-offset-1">
+                      <!--<div>-->
+                        <!--<img data-scroll-reveal="enter bottom and move 20px " src="Images/firstPic1.jpg" class="img-responsive">-->
+                      <!--</div>-->
+                      <div data-scroll-reveal="enter bottom and move 20px " id="ad01" class="carousel slide" data-ride="carousel" data-interval="3000"  data-pause="none">
+                          <!--必需：轮播广告的滚动内容-->
+                          <div class="carousel-inner">
+                              <div class="item active">
+                                  <img src="Images/firstPic1.jpg">
+                                  <div class="carousel-caption">
+                                      <span style="font-size: 30px;font-weight: bold;">李克强政府工作报告</span>
+                                  </div>
+                              </div>
+                              <div class="item">
+                                  <img src="Images/firstPic2.jpg">
+                              </div>
+                              <div class="item">
+                                  <img src="Images/firstPic3.jpg">
+                                  <div class="carousel-caption">
+                                      <h4 style="font-size: 30px;font-weight: bold;">紫藤节</h4>
+                                      <!--<span>看了这些你肯定也想去日本参加紫藤节</span>-->
+                                  </div>
+                              </div>
+                          </div>
+                          <a class="left carousel-control" role="button" data-target="#ad01"  data-slide="prev">
+                              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control"  role="button" data-target="#ad01"   data-slide="next">
+                              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                          </a>
+                      </div>
+
+
+                  </div>
+                  <div class="col-xs-12 col-md-5">
+                      <div>
+                          <ul data-scroll-reveal="enter right and move 100px over 1s" >
+                              <li><a href="http://www.gov.cn/xinwen/2016-04/16/content_5064844.htm" target="_blank">外交部发言人陆慷就日本熊本县发生强烈地震答记者问</a><span class="datetime">2016-04-16</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/2016zccfh/09/" target="_blank">国务院政策例行吹风会介绍阶段性降低企业社保缴费费率等</a><span class="datetime">2016-04-15</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/zhibo2/20160415fbh7/index.htm" target="_blank">新闻办发布会介绍2016年一季度国民经济运行情况</a><span class="datetime">2016-04-15</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/2016-04/15/content_5064638.htm" target="_blank">外交部发言人就2016年二十国集团峰会筹备工作吹风会等答问</a><span class="datetime">2016-04-15</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/2016-04/13/content_5063766.htm" target="_blank">外交部发言人就七国集团峰会等答问</a><span class="datetime">2016-04-13</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/2016-04/14/content_5063985.htm" target="_blank">农业部新闻办公室就“农业转基因有关情况”答记者问</a><span class="datetime">2016-04-14</span></li>
+
+                              <li><a href="http://www.gov.cn/xinwen/2016-04/14/content_5064063.htm" target="_blank">外交部发言人就美国务院发表“2015年度国别人权报告”等答问</a><span class="datetime">2016-04-14</span></li>
+
+                          </ul>
+                      </div>
+
+                  </div>
+              </div>
+                <!--分隔条-->
+              <div class="divid"></div>
+              <div class="row">
+                  <div class="col-xs-12 col-md-10 col-md-offset-1">
+                      <div  data-scroll-reveal="enter bottom and move 40px over 1s"  id="tabs">
+                          <ul>
+                              <li><a href="#tabs-1">&nbsp;&nbsp;国务院&nbsp;&nbsp;</a></li>
+                              <li><a href="#tabs-2">&nbsp;&nbsp;部门&nbsp;&nbsp;</a></li>
+                              <li><a href="#tabs-3">&nbsp;&nbsp;地方&nbsp;&nbsp;</a></li>
+                          </ul>
+                          <div id="tabs-1">
+                              <ul>
+                                  <li>
+                                      <a href="http://www.gov.cn/zhuanti/2016lh/premier.htm" target="_blank"  >李克强总理会见中外记者</a><span class="datetime">2016-03-16</span>
+                                  </li>
+                                      <li>
+                                      <a href="http://www.gov.cn/xinwen/zb_gwy2/" target="_blank"  >全国冬春农田水利基本建设电视电话会议</a><span class="datetime">2015-10-30</span>
+                                  </li>
+                                      <li>
+                                      <a href="http://www.gov.cn/xinwen/2015-08/22/content_2917768.htm" target="_blank"  >国务院“8·12”事故调查组负责人答记者问</a><span class="datetime">2015-08-22</span>
+                                  </li>
+                                      <li>
+                                      <a href="http://www.gov.cn/zhuanti/2015qglhzb/zb31.htm" target="_blank"  >李克强总理答中外记者问|<a href=http://www.gov.cn/zhuanti/2015-03/15/content_2834355.htm target=_blank>视频</a></a><span class="datetime">2015-03-15</span>
+                                  </li>
+                                      <li>
+                                      <a href="http://www.gov.cn/xinwen/zb_gwy1/" target="_blank"  >全国冬春农田水利基本建设电视电话会议</a><span class="datetime">2014-10-27</span>
+                                  </li>
+                              </ul>
+
+                          </div>
+                          <div id="tabs-2">
+                              <ul>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2016-04/16/content_5064844.htm" target="_blank"  >外交部发言人陆慷就日本熊本县发生强烈地震答记者问</a><span class="datetime">2016-04-16</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2016-04/15/content_5064638.htm" target="_blank"  >外交部发言人就G20峰会筹备工作吹风会等问题答问</a><span class="datetime">2016-04-15</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2016-04/14/content_5064063.htm" target="_blank"  >外交部就中国人权状况等答问</a><span class="datetime">2016-04-14</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2016-04/13/content_5063658.htm" target="_blank"  >海关总署新闻发言人介绍第一季度进出口有关情况</a><span class="datetime">2016-04-13</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2016-04/14/content_5063985.htm" target="_blank"  >农业部新闻办公室举行新闻发布会就“农业转基因有关情况”答记者问</a><span class="datetime">2016-04-14</span>
+                                  </li>
+                              </ul>
+
+                          </div>
+                          <div id="tabs-3">
+                              <ul>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2014-10/10/content_2762334.htm" target="_blank"  >采空区煤炭自燃引发重庆6·3煤矿重大瓦斯爆炸事故</a><span class="datetime">2014-10-10</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2014-09/09/content_2746952.htm" target="_blank"  >浙江省商务厅就支持外贸增长《实施意见》答问</a><span class="datetime">2014-09-09</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2014-09/02/content_2744354.htm" target="_blank"  >江苏省档案馆首次公布232名日本重要战犯名单</a><span class="datetime">2014-09-02</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2014-09/02/content_2744271.htm" target="_blank"  >南昌召开开展"为官不为"等问题专项整治新闻发布会</a><span class="datetime">2014-09-02</span>
+                                  </li>
+                                  <li>
+                                      <a href="http://www.gov.cn/xinwen/2014-09/02/content_2744263.htm" target="_blank"  >浙江省通报一批重大食品犯罪案件</a><span class="datetime">2014-09-02</span>
+                                  </li>
+                              </ul>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!--第三页面设置-->
+          <div id="thirdPage" class="item">
+              <div class="row">
+                  <div data-scroll-reveal="enter right and move 100px over 1s"  class="col-xs-6 col-xs-offset-3" style="text-align:center;">
+                      <h1><a href="">热点话题</a></h1>
+                      <div class="ssquare"></div>
+                      <h4 style="line-height:30px;">热点事件为大家提供最新新闻事件、热点新闻,包括社会事件、娱乐事件、国内事件、国际事件、灵异事件、历史事件及各种门事件等。</h4>
+                  </div>
+              </div>
+              <!--分隔条-->
+              <div class="divid"></div>
+              <div class="row">
+                  <div data-scroll-reveal="enter left and move 100px over 1s"  class="col-xs-12 col-md-3" style="padding:10px;">
+                            <a href="http://www.centrechina.com/news/106596.html"><img src="Images/t1.jpeg" class="img-responsive" style="border-radius:8px;"></a>
+                     <h4 style="text-indent: 30px;line-height: 30px;"> <a href="http://www.centrechina.com/news/106596.html">投注东野圭吾，中国版《嫌疑人X的献身》能“震撼你们”吗？</a></h4>
+                      <hr/>
+                      <span class="glyphicon glyphicon-eye-open"></span><span class="glyphicon glyphicon-eye-open"></span><span>32994</span> <span class="fr">2天前&nbsp;&nbsp;</span><span class="glyphicon glyphicon-time fr"></span>
+                  </div>
+                  <div data-scroll-reveal="enter bottom and move 100px over 1s after 0.6s"  class="col-xs-12 col-md-3" style="padding:10px;">
+                            <a href="http://bendi.news.163.com/jiangsu/photoview/75I50424/4123.html#p=CH1BBV4375I50424NOS"><img src="Images/t2.jpg" class="img-responsive" style="border-radius:8px;"></a>
+                     <h4 style="text-indent: 30px;line-height: 30px;"> <a href="http://bendi.news.163.com/jiangsu/photoview/75I50424/4123.html#p=CH1BBV4375I50424NOS">小长假首日 南京江北大道堵成“停车场”</a></h4>
+                      <hr/>
+                      <span class="glyphicon glyphicon-eye-open"></span><span class="glyphicon glyphicon-eye-open"></span><span>76596</span> <span class="fr">1天前&nbsp;&nbsp;</span><span class="glyphicon glyphicon-time fr"></span>
+                  </div>
+                  <div data-scroll-reveal="enter top and move 100px over 1s"  class="col-xs-12 col-md-3" style="padding:10px;">
+                            <a href="http://js.news.163.com/17/0402/09/CH0P2LKK04248E9B.html"><img src="Images/t3.jpg" class="img-responsive" style="border-radius:8px;"></a>
+                     <h4 style="text-indent: 30px;line-height: 30px;"> <a href="http://js.news.163.com/17/0402/09/CH0P2LKK04248E9B.html">女子借单车中途未锁被骑走 接连两日计费共70元</a></h4>
+                      <hr/>
+                      <span class="glyphicon glyphicon-eye-open"></span><span class="glyphicon glyphicon-eye-open"></span><span>32994</span> <span class="fr">2天前&nbsp;&nbsp;</span><span class="glyphicon glyphicon-time fr"></span>
+                  </div>
+                  <div data-scroll-reveal="enter right and move 100px over 1s"  class="col-xs-12 col-md-3" style="padding:10px;">
+                            <a href="http://js.news.163.com/17/0122/10/CBCLN4VC04248E9B.html#from=relevant"><img src="Images/t4.jpg" class="img-responsive" style="border-radius:8px;"></a>
+                     <h4 style="text-indent: 30px;line-height: 30px;"> <a href="http://js.news.163.com/17/0122/10/CBCLN4VC04248E9B.html#from=relevant">南京地铁1号北延工程设计获批 7号线增设南湖站</a></h4>
+                      <hr/>
+                      <span class="glyphicon glyphicon-eye-open"></span><span class="glyphicon glyphicon-eye-open"></span><span>32994</span> <span class="fr">2天前&nbsp;&nbsp;</span><span class="glyphicon glyphicon-time fr"></span>
+                  </div>
+              </div>
+          </div>
+
+        <!--第四页设置部分-->
+          <div id="forthPage" class="item">
+              <div class="container">
+                  <div class="row">
+                      <div data-scroll-reveal="enter right and move 100px over 1s"  class="col-xs-6 col-xs-offset-3" style="text-align:center;">
+                          <h1><a href="">国外动态</a></h1>
+                          <div class="ssquare"></div>
+                          <h4 style="line-height: 30px;">本网站是富含商业价值和影响力的新闻媒体,24小时滚动报道最新海外新闻、海外各种美食介绍、创新科技一手资讯,收集热门youtube视频,美剧跟欧美大片全部提供免费下载。</h4>
+                      </div>
+                  </div>
+                  <!--分隔条-->
+                  <div class="divid"></div>
+                  <div class="row">
+                      <div data-scroll-reveal="enter top" class="col-xs-12 col-sm-3" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-1.jpg" class="img-responsive"></a>
+                          <h4><a href="http://news.ifeng.com/a/20170404/50885694_0.shtml">美众议院通过法案：考虑重划朝鲜为“支恐国家”</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter right after 0.5s" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-2.jpg" class="img-responsive"></a>
+                          <h4><a href="http://news.163.com/17/0405/00/CH7H9UDA00014AEE.html">俄地铁爆炸致14人死近50人伤 普京到现场献花</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter bottom over 1s and move 300px after 0.3s" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-3.jpg" class="img-responsive"></a>
+                          <h4><a href="http://news.163.com/17/0408/17/CHH26HAT00018AOQ.html">菲律宾发生地震（组图）,菲律宾总统杜特尔特讲话</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter top over 0.5s and move 200px" class="col-xs-12 col-sm-3" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-5.jpg" class="img-responsive"></a>
+                          <h4><a href="http://pit.ifeng.com/a/20170406/50896029_0.shtml">“燃烧的地铁”会否烧焦普京的连任大计？</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter bottom over 1s and move 100px" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-4.jpg" class="img-responsive"></a>
+                          <h4><a href="http://news.163.com/17/0408/18/CHH7KMLU000187VE.html">中美札记丨两国领导人交朋友、定调子，双边关系拨云见日</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter bottom over 1s and move 300px after 0.3s" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-6.jpg" class="img-responsive"></a>
+                          <h4><a href="http://www.cnforex.com/news/html/2017/3/17/b76be4de38a54818d6c5ed2b587879c3.html">韩国法院将三星领导人李在镕一案移交给另一名法官</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter left and move 100px over 1s" class="col-xs-12 col-sm-3" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-7.jpg" class="img-responsive"></a>
+                          <h4><a href="http://news.163.com/17/0318/20/CFRB8SNJ0001875O.html">3天4起爆炸枪击事件！法国还安全吗？</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter left" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-8.jpg" class="img-responsive"></a>
+                          <h4><a href="http://phtv.ifeng.com/a/20170407/44568895_0.shtml">叙利亚化武事件太蹊跷 各方互相指责真凶难明！</a></h4>
+                      </div>
+                      <div data-scroll-reveal="enter bottom over 1s and move 100px" class="col-xs-12 col-sm-3 col-sm-offset-1" style="border:1px solid #656565;border-bottom-color:transparent;padding-top:8px;margin-bottom:10px;">
+                          <a href="http://news.ifeng.com/a/20170404/50885694_0.shtml"><img src="Images/4-9.jpg" class="img-responsive"></a>
+                          <h4><a href="http://v.ifeng.com/video_153281.shtml">越南妄想用战机突袭中国腹地未开火就被揍！</a></h4>
+                      </div>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <!--第五页资讯站设置部分-->
+          <div id="fivePage" class="item">
+              <div class="container">
+                  <div class="row">
+                      <div data-scroll-reveal="enter right and move 100px over 1s"  class="col-xs-6 col-xs-offset-3" style="text-align:center;">
+                          <h1><a href="">资讯站</a></h1>
+                          <div class="ssquare"></div>
+                          <h4 style="line-height: 30px;">本网站是互联网IT新闻业界的后起之秀,是国内领先的即时科技资讯站点和网友交流平台。消息速度快,报导立场公正中立,网友讨论气氛浓厚,在IT业界拥有独特的影响力。</h4>
+                      </div>
+                  </div>
+                  <!--分隔条-->
+                  <div class="divid"></div>
+                  <div class="row">
+                    <div data-scroll-reveal="enter bottom and move 100px over 0.6s"  class="col-xs-12">
+                      <section id="dg-container" class="dg-container">
+                          <div class="dg-wrapper">
+                              <a href="#"><img src="Images/5-1.jpg" alt="image01"></a>
+                              <a href="#"><img src="Images/5-2.jpg" alt="image02"></a>
+                              <a href="#"><img src="Images/5-3.jpg" alt="image03"></a>
+                              <a href="#"><img src="Images/5-4.jpg" alt="image04"></a>
+                              <a href="#"><img src="Images/5-5.jpg" alt="image05"></a>
+                          </div>
+                          <nav>
+                              <span class="dg-prev">&lt;</span>
+                              <span class="dg-next">&gt;</span>
+                          </nav>
+                      </section>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <!--第六页联系我们设置部分-->
+          <div id="sixPage" class="item">
+              <div class="container">
+                 <div class="row">
+                  <div data-scroll-reveal="enter right and move 100px over 1s"   class="col-xs-6 col-xs-offset-3" style="text-align:center;">
+                      <h1><a href="">联系我们</a></h1>
+                      <div class="ssquare"></div>
+                      <h4 style="line-height: 30px;">您在本网站遇到的任何问题都可以随时联系我，我们真诚的为您服务。客服人员24小时在线。</h4>
+                  </div>
+              </div>
+                 <!--分隔条-->
+                 <div class="divid"></div>
+                 <div class="row">
+             <div data-scroll-reveal="enter right and ease-in-out 200px over 1.5s"   class="col-xs-12">
+                 <form class="form-group" action="#">
+                     <div class="form-group">
+                         <!--Screen Reader Only-->
+                         <label class="sr-only" for="uname2"></label>
+                         <input class="form-control" type="text" id="uname2" placeholder="用户名">
+                     </div>
+
+                     <div class="form-group">
+                         <label class="sr-only" for="upwd2"></label>
+                         <input class="form-control" type="text" id="upwd2" placeholder="密码">
+                     </div>
+
+                     <div class="form-group">
+                         <textarea cols="5" rows="15" class="form-control" placeholder="请输入内容"></textarea>
+                     </div>
+                     <div class="form-group">
+                         <input class="btn btn-block" type="submit" value="提交"/>
+
+                     </div>
+
+                 </form>
+             </div>
+          </div>
+              </div>
+          </div>
+
+          <!--页脚设置部分-->
+          <div id="foot">
+              <div class="container">
+                  <div style="text-align: center;">
+                      <h1>友情链接</h1>
+                  </div>
+                  <div data-scroll-reveal="enter top and move 100px over 1s"   class="row"  style="text-align: center;">
+                      <div class="col-xs-12">
+                          <p><a href="http://www.gov.cn/" target="_blank">中国政府网</a> | <a href="http://www.china.com.cn/" target="_blank">中国网</a> | <a href="http://www.people.com.cn/" target="_blank">人民网</a> | <a href="http://www.xinhuanet.com/" target="_blank">新华网</a> | <a href="http://www.chinanews.com/" target="_blank">中新网</a> | <a href="http://www.cctv.com/default.shtml" target="_blank">央视网</a> | <a href="http://www.cnr.cn/" target="_blank">中广网</a> |  <a href="http://www.chinadaily.com.cn/" target="_blank">中国日报</a> | <a href="http://www.cyol.net/node/index.htm" target="_blank">中青在线</a> | <a href="http://www.gmw.cn/" target="_blank">光明网</a> | <a href="http://www.chinamil.com.cn/" target="_blank">解放军报</a> | <a href="http://www.legaldaily.com.cn/" target="_blank">法制日报</a> | <a href="http://www.taiwan.cn/" target="_blank">中国台湾网</a> | <a href="http://www.ce.cn/" target="_blank">中经网</a> | <a href="http://www.nfcmag.com/" target="_blank">南风窗</a></p></div>
+                      <div class="col-xs-12">
+                          <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn/" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com/" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p></div>
+                      <div class="col-xs-12">
+                          <p><a href="http://www.neweekly.com.cn/" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org/" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn/" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p></div>
+                      <div class="col-xs-12">
+                          <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p></div>
+                  </div>
+                  <!--分隔条-->
+                  <div class="divid"></div>
+                  <div id="baidumap" class="row">
+                      <div class="col-xs-12" style="text-align: center;">
+                          <h1>网站地图<span style="font-size: 14px;">&nbsp;&nbsp;(图中打勾处)</span></h1>
+                          <div style="width:1027px;height:600px;border:#ccc solid 1px;margin:0 auto;" id="dituContent"></div>
+                      </div>
+                  </div>
+
+          </div>
+              <!--分隔条-->
+              <div class="divid"></div>
+
+              <!--//最底部的导航栏制作-->
+              <div class="navbar navbar-inverse">
+                  <div class="container-fluid">
+                  <!--导航头部-->
+
+                  <div class="navbar-header">
+                      <span class="navbar-text">&copy;1997-2017 公司版权所有</span>
+                      <a class="navbar-toggle" data-toggle="collapse" href="#menu1">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </a>
+                  </div>
+                  <!--导航折叠部分-->
+                  <div id="menu1" class="collapse navbar-collapse">
+                      <!--左侧的导航菜单-->
+                      <ul class="nav navbar-nav">
+                          <li><a href="#">关于我们</a></li>
+                          <li><a href="#">公司简介</a></li>
+                          <li><a href="#">联系方法</a></li>
+                          <li><a href="#">招聘信息</a></li>
+                          <li><a href="#">客户服务</a></li>
+                         <li><a href="#">隐私政策</a></li>
+                         <li><a href="#">广告服务</a></li>
+                          <li><a href="#">意见反馈</a></li>
+                          <li><a href="#">不良信息举报</a></li>
+                          <li><a href="#">赞助商</a></li>
+                          <li><a href="#">旗下网站</a></li>
+                      </ul>
+                  </div>
+                 </div>
+              </div>
+             </div>
+      </div>
+  </div>
+
+
+  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/modernizr.custom.53451.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/scrollReveal.js"></script>
+  <script src="js/classie.js"></script>
+  <script src="js/modalEffects.js"></script>
+  <script src="js/myjs.js"></script>
+
+</body>
+</html>
